@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Sistema - Código Urbano</title>
+    <!-- Incluimos Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <!-- Incluimos nuestro archivo CSS personalizado -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="container">
+        <h1 class="my-4">Universidad Nacional de Formosa</h1>
+        <h1 class="my-4">Escuela de Formación Profesional</h1>
+        <h2>Tecnicatura en Análisis y Desarrollo de Software</h2>
+        <h3>Prácticas Profesionalizantes II</h3>
+        <h6>T.P. FINAL GRUPAL</h6>
+        <h6>ANÁLISIS, DISEÑO E IMPLEMENTACIÓN DE UNA TIENDA VIRTUAL: </h6>
+        <h6> “CODIGO URBANO – ROPA DEPORTIVA”</h6>
+      </header>
+    <section id="Diccionario">
+        <section class="container mt-4 mb-4">
+
+            <h2>Diccionario de Base de Datos</h2>
+            <div class="table-responsive">
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Tabla</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>categoría_producto</td>
+                            <td>Almacena categoría de producto</td>
+                        </tr>
+                        <tr>
+                            <td>Cliente</td>
+                            <td>Almacena datos del cliente</td>
+                        </tr>
+                        <tr>
+                            <td>detalle_factura_compra</td>
+                            <td>Almacena detalle de factura venta</td>
+                        </tr>
+                        <tr>
+                            <td>detalle_factura_venta</td>
+                            <td>Almacena detalle de factura compra</td>
+                        </tr>
+                        <tr>
+                            <td>factura_cliente</td>
+                            <td>Almacena detalles de factura y cliente</td>
+                        </tr>
+                        <tr>
+                            <td>detalle_producto_defectuoso</td>
+                            <td>Almacena productos defectuosos para devolución</td>
+                        </tr>
+                        <tr>
+                            <td>forma_pago</td>
+                            <td>Almacena las formas de pago disponibles</td>
+                        </tr>
+                        <tr>
+                            <td>Marca</td>
+                            <td>Almacena las marcas disponibles</td>
+                        </tr>
+                        <tr>
+                            <td>pedido_proveedor</td>
+                            <td>Almacena las notas de pedido a los proveedores</td>
+                        </tr>
+                        <tr>
+                            <td>Producto</td>
+                            <td>Almacena productos disponibles</td>
+                        </tr>
+                        <tr>
+                            <td>producto_defectuoso</td>
+                            <td>Almacena producto defectuoso con el proveedor de esa prenda</td>
+                        </tr>
+                        <tr>
+                            <td>Proveedor</td>
+                            <td>Almacena lista de proveedores con sus datos</td>
+                        </tr>
+                        <tr>
+                            <td>Usuario</td>
+                            <td>Almacena usuarios permitidos para el acceso al sistema</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br><br><br>
+
+                <h3>Tabla: Producto</h3>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Tipo de dato</th>
+                            <th>Longitud</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>id_producto</td>
+                            <td>Int</td>
+                            <td>10</td>
+                            <td>Clave Principal autoincrementar</td>
+                        </tr>
+                        <tr>
+                            <td>Nombre</td>
+                            <td>Varchar</td>
+                            <td>10</td>
+                            <td>Nombre del producto</td>
+                        </tr>
+                        <tr>
+                            <td>Serie</td>
+                            <td>Varchar</td>
+                            <td>50</td>
+                            <td>Nro. serie de la etiqueta</td>
+                        </tr>
+                        <tr>
+                            <td>Cantidad</td>
+                            <td>Int</td>
+                            <td>10</td>
+                            <td>Cantidad del producto</td>
+                        </tr>
+                        <tr>
+                            <td>Stock</td>
+                            <td>Int</td>
+                            <td>10</td>
+                            <td>Cantidad Disponible para la venta</td>
+                        </tr>
+                        <tr>
+                            <td>Precio</td>
+                            <td>Float</td>
+                            <td>10</td>
+                            <td>Precio venta</td>
+                        </tr>
+                        <tr>
+                            <td>Descripción</td>
+                            <td>Varchar</td>
+                            <td>50</td>
+                            <td>Descripción del producto</td>
+                        </tr>
+                        <tr>
+                            <td>fechadeingreso</td>
+                            <td>Date</td>
+                            <td>-</td>
+                            <td>Fecha que ingreso el producto</td>
+                        </tr>
+                        <tr>
+                            <td>Fechadecompra</td>
+                            <td>Date</td>
+                            <td>-</td>
+                            <td>Fecha que se realizó la compra</td>
+                        </tr>
+                        <tr>
+                            <td>Id_marca</td>
+                            <td>Int</td>
+                            <td>10</td>
+                            <td>Clave foránea identifica la marca del producto</td>
+                        </tr>
+                        <tr>
+                            <td>Id_proveedor</td>
+                            <td>Int</td>
+                            <td>10</td>
+                            <td>Clave foránea identifica el proveedor del producto</td>
+                        </tr>
+                        <tr>
+                            <td>Id_categoria</td>
+                            <td>Int</td>
+                            <td>10</td>
+                            <td>Clave foránea identifica categoría del producto</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br><br><br>
+
+                <!-- Tabla: Proveedor -->
+                <h3>Tabla: Proveedor</h3>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Tipo de dato</th>
+                            <th>Longitud</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Id_proveedor</td>
+                            <td>Int</td>
+                            <td>10</td>
+                            <td>Clave principal Autoincrementar</td>
+                        </tr>
+                        <tr>
+                            <td>Nombre</td>
+                            <td>Varchar</td>
+                            <td>50</td>
+                            <td>Nombre del proveedor</td>
+                        </tr>
+                        <tr>
+                            <td>Dirección</td>
+                            <td>Varchar</td>
+                            <td>50</td>
+                            <td>Dirección del proveedor</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>Varchar</td>
+                            <td>50</td>
+                            <td>Email del proveedor</td>
+                        </tr>
+                        <tr>
+                            <td>Cuit</td>
+                            <td>Varchar</td>
+                            <td>50</td>
+                            <td>Cuit del proveedor</td>
+                        </tr>
+                        <tr>
+                            <td>Cbu</td>
+                            <td>Varchar</td>
+                            <td>50</td>
+                            <td>Cbu del proveedor</td>
+                        </tr>
+                        <tr>
+                            <td>Teléfono</td>
+                            <td>Varchar</td>
+                            <td>50</td>
+                            <td>Número de teléfono del proveedor</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3> Factura_cliente</h3>
+
+                     <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Tipo de dato</th>
+                            <th>Longitud</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Id_factura</td>
+                            <td>Int</td>
+                            <td>10</td>
+                            <td>Clave principal Autoincrementar</td>
+                        </tr>
+                        <tr>
+                            <td>Código_factura</td>
+                            <td>Int</td>
+                            <td>10</td>
+                            <td>Código de la factura</td>
+                        </tr>
+                        <tr>
+                            <td>Id_cliente</td>
+                            <td>Int</td>
+                            <td>10</td>
+                            <td>Clave foránea que identifica el cliente</td>
+                        </tr>
+                        <tr>
+                            <td>Id_detalle_venta</td>
+                            <td>Int</td>
+                            <td>10</td>
+                            <td>Clave foránea que detalla cantidad y precio de los productos</td>
+                        </tr>
+                        <tr>
+                            <td>Id_forma_pago</td>
+                            <td>Int</td>
+                            <td>10</td>
+                            <td>Clave foránea que identifica la forma de pago</td>
+                        </tr>
+                        <tr>
+                            <td>Fecha</td>
+                            <td>Date</td>
+                            <td></td>
+                            <td>Fecha de venta de la factura</td>
+                        </tr>
+                        <tr>
+                            <td>Descuento</td>
+                            <td>Int</td>
+                            <td>10</td>
+                            <td>Porcentaje del descuento</td>
+                        </tr>
+                        <tr>
+                            <td>Total_pagar</td>
+                            <td>Int</td>
+                            <td>10</td>
+                            <td>Importe a pagar</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br><br><br>
+                <h3>Pedido_proveedor</h3>
+                <table class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Tipo de dato</th>
+                            <th>Longitud</th>
+                            <th>Descripción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Id_pedido</td>
+                            <td>Int</td>
+                            <td>10</td>
+                            <td>Clave principal Autoincrementar</td>
+                        </tr>
+                        <tr>
+                            <td>Id_proveedor</td>
+                            <td>Int</td>
+                            <td>10</td>
+                            <td>Clave foránea que identifica Nombre del proveedor</td>
+                        </tr>
+                        <tr>
+                            <td>total_pagar</td>
+                            <td>Float</td>
+                            <td>10</td>
+                            <td>Importe total del pedido</td>
+                        </tr>
+                        <tr>
+                            <td>Id_usuario</td>
+                            <td>Varchar</td>
+                            <td>50</td>
+                            <td>Email del proveedor</td>
+                        </tr>
+                        <tr>
+                            <td>Id_detalle_compra</td>
+                            <td>Varchar</td>
+                            <td>50</td>
+                            <td>Cuit del proveedor</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+        </section>
+
+    </section>
+    <div class="d-flex justify-content-center">
+        <a href="index.html#tabla-contenido">
+            <button type="button" class="btn btn-primary my-3">VOLVER</button>
+        </a>
+    </div>
+
+    <div class="row" id="footer">
+        <footer>
+            <p>
+                <a href="https://frontendprueba123.web.app/" target="_blank">Codigo Urbano - Ropa Deportiva © |
+                </a> Practicas Profesionalizantes II
+                <a href="http://www.unf.edu.ar/" target="_blank">UNAF</a>
+            </p>
+            <p>Formosa, Argentina</p>
+
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
